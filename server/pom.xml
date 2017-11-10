@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.lmonkiewicz.contracts</groupId>
+	<artifactId>server</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>server</name>
+	<description>Demo project for Spring Boot</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.8.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<spring-cloud-contract.version>1.1.4.RELEASE</spring-cloud-contract.version>
+	</properties>
+
+	<!--<dependencyManagement>-->
+		<!--<dependencies>-->
+			<!--<dependency>-->
+				<!--<groupId>org.springframework.cloud</groupId>-->
+				<!--<artifactId>spring-cloud-dependencies</artifactId>-->
+				<!--<version>Dalston.SR3</version>-->
+				<!--<type>pom</type>-->
+				<!--<scope>import</scope>-->
+			<!--</dependency>-->
+		<!--</dependencies>-->
+	<!--</dependencyManagement>-->
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-contract-verifier</artifactId>
+			<version>${spring-cloud-contract.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-contract-maven-plugin</artifactId>
+				<version>${spring-cloud-contract.version}</version>
+				<extensions>true</extensions>
+				<!--<executions>-->
+					<!--<execution>-->
+						<!--<id>users</id>-->
+						<!--<phase>generate-test-sources</phase>-->
+						<!--<goals>-->
+							<!--<goal>convert</goal>-->
+							<!--<goal>generateStubs</goal>-->
+							<!--<goal>generateTests</goal>-->
+						<!--</goals>-->
+						<configuration>
+							<contractsWorkOffline>true</contractsWorkOffline>
+							<contractDependency>
+								<groupId>com.lmonkiewicz.contracts</groupId>
+								<artifactId>contracts-def-users</artifactId>
+							</contractDependency>
+							<contractsPath>server</contractsPath>
+							<baseClassForTests>com.lmonkiewicz.contracts.server.BaseUsersTest</baseClassForTests>
+						</configuration>
+					<!--</execution>-->
+					<!--<execution>-->
+						<!--<id>posts</id>-->
+						<!--<phase>generate-test-sources</phase>-->
+						<!--<goals>-->
+							<!--<goal>convert</goal>-->
+							<!--<goal>generateStubs</goal>-->
+							<!--<goal>generateTests</goal>-->
+						<!--</goals>-->
+						<!--<configuration>-->
+							<!--<contractsWorkOffline>true</contractsWorkOffline>-->
+							<!--<contractDependency>-->
+								<!--<groupId>com.lmonkiewicz.contracts</groupId>-->
+								<!--<artifactId>contracts-def-posts</artifactId>-->
+							<!--</contractDependency>-->
+							<!--<contractsPath>service</contractsPath>-->
+							<!--<baseClassForTests>com.lmonkiewicz.contracts.server.BasePostsTest</baseClassForTests>-->
+						<!--</configuration>-->
+					<!--</execution>-->
+				<!--</executions>-->
+				<!--<dependencies>-->
+					<!--<dependency>-->
+						<!--<groupId>org.springframework.cloud</groupId>-->
+						<!--<artifactId>spring-cloud-contract-verifier</artifactId>-->
+						<!--<version>${spring-cloud-contract.version}</version>-->
+					<!--</dependency>-->
+				<!--</dependencies>-->
+			</plugin>
+
+			<!--<plugin>-->
+				<!--<groupId>org.springframework.cloud</groupId>-->
+				<!--<artifactId>spring-cloud-contract-maven-plugin</artifactId>-->
+				<!--<version>${spring-cloud-contract.version}</version>-->
+				<!--<extensions>true</extensions>-->
+				<!--<configuration>-->
+					<!--<baseClassMappings>-->
+						<!--<baseClassMapping>-->
+							<!--<contractPackageRegex>.*users.*</contractPackageRegex>-->
+							<!--<baseClassFQN>com.lmonkiewicz.contracts.server.BaseUsersTest</baseClassFQN>-->
+						<!--</baseClassMapping>-->
+						<!--<baseClassMapping>-->
+							<!--<contractPackageRegex>.*posts.*</contractPackageRegex>-->
+							<!--<baseClassFQN>com.lmonkiewicz.contracts.server.BasePostsTest</baseClassFQN>-->
+						<!--</baseClassMapping>-->
+					<!--</baseClassMappings>-->
+					<!--&lt;!&ndash; We want to use the JAR with contracts with the following coordinates &ndash;&gt;-->
+					<!--<contractDependency>-->
+						<!--<groupId>com.lmonkiewicz.contracts</groupId>-->
+						<!--<artifactId>contracts-def-users</artifactId>-->
+					<!--</contractDependency>-->
+					<!--<contractDependency>-->
+						<!--<groupId>com.lmonkiewicz.contracts</groupId>-->
+						<!--<artifactId>contracts-def-posts</artifactId>-->
+					<!--</contractDependency>-->
+					<!--&lt;!&ndash;Path to contracts in jar to use&ndash;&gt;-->
+					<!--<contractsPath>server</contractsPath>-->
+					<!--&lt;!&ndash; The JAR with contracts should be taken from Maven local &ndash;&gt;-->
+					<!--<contractsWorkOffline>true</contractsWorkOffline>-->
+					<!--&lt;!&ndash; Base package for generated tests &ndash;&gt;-->
+					<!--<basePackageForTests>com.lmonkiewicz.contracts</basePackageForTests>-->
+				<!--</configuration>-->
+				<!--&lt;!&ndash; this was added for testing purposes only &ndash;&gt;-->
+				<!--<dependencies>-->
+					<!--<dependency>-->
+						<!--<groupId>org.springframework.cloud</groupId>-->
+						<!--<artifactId>spring-cloud-contract-verifier</artifactId>-->
+						<!--<version>${spring-cloud-contract.version}</version>-->
+					<!--</dependency>-->
+				<!--</dependencies>-->
+			<!--</plugin>-->
+		</plugins>
+	</build>
+
+
+</project>
