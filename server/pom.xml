@@ -25,18 +25,6 @@
 		<spring-cloud-contract.version>1.1.4.RELEASE</spring-cloud-contract.version>
 	</properties>
 
-	<!--<dependencyManagement>-->
-		<!--<dependencies>-->
-			<!--<dependency>-->
-				<!--<groupId>org.springframework.cloud</groupId>-->
-				<!--<artifactId>spring-cloud-dependencies</artifactId>-->
-				<!--<version>Dalston.SR3</version>-->
-				<!--<type>pom</type>-->
-				<!--<scope>import</scope>-->
-			<!--</dependency>-->
-		<!--</dependencies>-->
-	<!--</dependencyManagement>-->
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -113,56 +101,7 @@
 						<!--</configuration>-->
 					<!--</execution>-->
 				<!--</executions>-->
-				<!--<dependencies>-->
-					<!--<dependency>-->
-						<!--<groupId>org.springframework.cloud</groupId>-->
-						<!--<artifactId>spring-cloud-contract-verifier</artifactId>-->
-						<!--<version>${spring-cloud-contract.version}</version>-->
-					<!--</dependency>-->
-				<!--</dependencies>-->
 			</plugin>
-
-			<!--<plugin>-->
-				<!--<groupId>org.springframework.cloud</groupId>-->
-				<!--<artifactId>spring-cloud-contract-maven-plugin</artifactId>-->
-				<!--<version>${spring-cloud-contract.version}</version>-->
-				<!--<extensions>true</extensions>-->
-				<!--<configuration>-->
-					<!--<baseClassMappings>-->
-						<!--<baseClassMapping>-->
-							<!--<contractPackageRegex>.*users.*</contractPackageRegex>-->
-							<!--<baseClassFQN>com.lmonkiewicz.contracts.server.BaseUsersTest</baseClassFQN>-->
-						<!--</baseClassMapping>-->
-						<!--<baseClassMapping>-->
-							<!--<contractPackageRegex>.*posts.*</contractPackageRegex>-->
-							<!--<baseClassFQN>com.lmonkiewicz.contracts.server.BasePostsTest</baseClassFQN>-->
-						<!--</baseClassMapping>-->
-					<!--</baseClassMappings>-->
-					<!--&lt;!&ndash; We want to use the JAR with contracts with the following coordinates &ndash;&gt;-->
-					<!--<contractDependency>-->
-						<!--<groupId>com.lmonkiewicz.contracts</groupId>-->
-						<!--<artifactId>contracts-def-users</artifactId>-->
-					<!--</contractDependency>-->
-					<!--<contractDependency>-->
-						<!--<groupId>com.lmonkiewicz.contracts</groupId>-->
-						<!--<artifactId>contracts-def-posts</artifactId>-->
-					<!--</contractDependency>-->
-					<!--&lt;!&ndash;Path to contracts in jar to use&ndash;&gt;-->
-					<!--<contractsPath>server</contractsPath>-->
-					<!--&lt;!&ndash; The JAR with contracts should be taken from Maven local &ndash;&gt;-->
-					<!--<contractsWorkOffline>true</contractsWorkOffline>-->
-					<!--&lt;!&ndash; Base package for generated tests &ndash;&gt;-->
-					<!--<basePackageForTests>com.lmonkiewicz.contracts</basePackageForTests>-->
-				<!--</configuration>-->
-				<!--&lt;!&ndash; this was added for testing purposes only &ndash;&gt;-->
-				<!--<dependencies>-->
-					<!--<dependency>-->
-						<!--<groupId>org.springframework.cloud</groupId>-->
-						<!--<artifactId>spring-cloud-contract-verifier</artifactId>-->
-						<!--<version>${spring-cloud-contract.version}</version>-->
-					<!--</dependency>-->
-				<!--</dependencies>-->
-			<!--</plugin>-->
 		</plugins>
 	</build>
 
