@@ -63,15 +63,15 @@
 				<artifactId>spring-cloud-contract-maven-plugin</artifactId>
 				<version>${spring-cloud-contract.version}</version>
 				<extensions>true</extensions>
-				<!--<executions>-->
-					<!--<execution>-->
+				<executions>
+					<execution>
 						<!--<id>users</id>-->
-						<!--<phase>generate-test-sources</phase>-->
-						<!--<goals>-->
-							<!--<goal>convert</goal>-->
-							<!--<goal>generateStubs</goal>-->
-							<!--<goal>generateTests</goal>-->
-						<!--</goals>-->
+						<phase>generate-test-sources</phase>
+						<goals>
+							<goal>convert</goal>
+							<goal>generateStubs</goal>
+							<goal>generateTests</goal>
+						</goals>
 						<configuration>
 							<contractsWorkOffline>true</contractsWorkOffline>
 							<contractDependency>
@@ -81,7 +81,8 @@
 							<contractsPath>server</contractsPath>
 							<baseClassForTests>com.lmonkiewicz.contracts.server.BaseUsersTest</baseClassForTests>
 						</configuration>
-					<!--</execution>-->
+					</execution>
+				</executions>
 					<!--<execution>-->
 						<!--<id>posts</id>-->
 						<!--<phase>generate-test-sources</phase>-->
