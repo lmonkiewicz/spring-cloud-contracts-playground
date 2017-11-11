@@ -5,7 +5,7 @@ org.springframework.cloud.contract.spec.Contract.make {
         method 'GET'
         urlPath('/login') {
             queryParameters {
-                parameter('login', 'Stefan')
+                parameter('name', 'Stefan')
             }
         }
     }
@@ -13,7 +13,7 @@ org.springframework.cloud.contract.spec.Contract.make {
         status 200
         body('''
             {
-                "message": "Hello user"
+                "message": "Hello Stefan"
             }
         ''')
         headers {
