@@ -10,11 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>contracts-def</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>contracts-def-users</module>
-        <module>contracts-def-posts</module>
-    </modules>
+    <packaging>jar</packaging>
 
 
     <dependencyManagement>

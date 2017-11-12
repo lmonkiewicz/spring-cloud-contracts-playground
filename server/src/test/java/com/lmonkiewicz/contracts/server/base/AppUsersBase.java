@@ -1,6 +1,9 @@
-package com.lmonkiewicz.contracts.server;
+package com.lmonkiewicz.contracts.server.base;
 
 import com.jayway.restassured.module.mockmvc.RestAssuredMockMvc;
+import com.lmonkiewicz.contracts.server.Message;
+import com.lmonkiewicz.contracts.server.UsersController;
+import com.lmonkiewicz.contracts.server.UsersService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
 
@@ -9,7 +12,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @Slf4j
-public class BaseUsersTest {
+public class AppUsersBase {
 
     @Before
     public void setUp() throws Exception {

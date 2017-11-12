@@ -1,16 +1,19 @@
-package contracts.service.posts
+package contracts.app.users
 
 org.springframework.cloud.contract.spec.Contract.make {
     request {
         method 'GET'
-        urlPath('/list') {
+        urlPath('/login') {
+            queryParameters {
+                parameter('name', 'Stefan')
+            }
         }
     }
     response {
         status 200
         body('''
             {
-                "message": "Its a list"
+                "message": "Hello Stefan"
             }
         ''')
         headers {

@@ -69,44 +69,16 @@
 				<artifactId>spring-cloud-contract-maven-plugin</artifactId>
 				<version>${spring-cloud-contract.version}</version>
 				<extensions>true</extensions>
-				<!--<executions>-->
-					<!--<execution>-->
-						<!--<id>users</id>-->
-						<!--<phase>generate-test-sources</phase>-->
-						<!--<goals>-->
-							<!--<goal>convert</goal>-->
-							<!--<goal>generateStubs</goal>-->
-							<!--<goal>generateTests</goal>-->
-						<!--</goals>-->
-						<configuration>
-							<contractsWorkOffline>true</contractsWorkOffline>
-							<contractDependency>
-								<groupId>com.lmonkiewicz.contracts</groupId>
-								<artifactId>contracts-def-users</artifactId>
-							</contractDependency>
-							<contractsPath>server</contractsPath>
-							<baseClassForTests>com.lmonkiewicz.contracts.server.BaseUsersTest</baseClassForTests>
-						</configuration>
-					<!--</execution>-->
-					<!--<execution>-->
-						<!--<id>posts</id>-->
-						<!--<phase>generate-test-sources</phase>-->
-						<!--<goals>-->
-							<!--<goal>convert</goal>-->
-							<!--<goal>generateStubs</goal>-->
-							<!--<goal>generateTests</goal>-->
-						<!--</goals>-->
-						<!--<configuration>-->
-							<!--<contractsWorkOffline>true</contractsWorkOffline>-->
-							<!--<contractDependency>-->
-								<!--<groupId>com.lmonkiewicz.contracts</groupId>-->
-								<!--<artifactId>contracts-def-posts</artifactId>-->
-							<!--</contractDependency>-->
-							<!--<contractsPath>service</contractsPath>-->
-							<!--<baseClassForTests>com.lmonkiewicz.contracts.server.BasePostsTest</baseClassForTests>-->
-						<!--</configuration>-->
-					<!--</execution>-->
-				<!--</executions>-->
+					<configuration>
+						<contractsWorkOffline>true</contractsWorkOffline>
+
+						<contractDependency>
+							<groupId>com.lmonkiewicz.contracts</groupId>
+							<artifactId>contracts-def</artifactId>
+						</contractDependency>
+						<contractsPath>app</contractsPath>
+						<packageWithBaseClasses>com.lmonkiewicz.contracts.server.base</packageWithBaseClasses>
+					</configuration>
 			</plugin>
 		</plugins>
 	</build>
